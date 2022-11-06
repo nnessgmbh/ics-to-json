@@ -76,7 +76,7 @@ const icsToJson = (icsData) => {
         currentObj[keyMap[SUMMARY]] = clean(value);
         break;
       case LOCATION:
-        currentObj[keyMap[LOCATION]] = clean(value);
+        currentObj[keyMap[LOCATION]] = value;
         break;
       case RULE:
         currentObj[keyMap[RULE]] = value;
