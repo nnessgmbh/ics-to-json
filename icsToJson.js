@@ -9,18 +9,19 @@ const DESCRIPTION = "DESCRIPTION";
 const SUMMARY = "SUMMARY";
 const LOCATION = "LOCATION";
 const ALARM = "VALARM";
-
+const RULE = "RRULE";
 const keyMap = {
   [START_DATE]: "startDate",
   [END_DATE]: "endDate",
   [DESCRIPTION]: "description",
   [SUMMARY]: "summary",
-  [LOCATION]: "location"
+  [LOCATION]: "location",
+  [RULE]: "rule",
 };
 
-const clean = string => unescape(string).trim();
+const clean = (string) => unescape(string).trim();
 
-const icsToJson = icsData => {
+const icsToJson = (icsData) => {
   const array = [];
   let currentObj = {};
   let lastKey = "";
@@ -76,6 +77,8 @@ const icsToJson = icsData => {
         break;
       case LOCATION:
         currentObj[keyMap[LOCATION]] = clean(value);
+      case RULE:
+        currentObj[keyMap[RULE]] = value;
       default:
         continue;
     }
