@@ -86,10 +86,12 @@ var icsToJson = function icsToJson(icsData) {
         break;
 
       case LOCATION:
-        currentObj[keyMap[LOCATION]] = clean(value);
+        currentObj[keyMap[LOCATION]] = value;
+        break;
 
       case RULE:
         currentObj[keyMap[RULE]] = value;
+        break;
 
       default:
         continue;
